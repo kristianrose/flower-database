@@ -100,7 +100,7 @@ $db->update('tabela',
 ```
 SQL Query :
 ```sql
-UPDATE `mytable` SET `primeiro_nome` = ?, `ultimo_nome` = ?, `idade` = ? WHERE `tabela`.`id` = ?
+UPDATE `tabela` SET `primeiro_nome` = ?, `ultimo_nome` = ?, `idade` = ? WHERE `tabela`.`id` = ?
 ```
 mas, e se precisarmos usar outro operador?
 #### Passando nome da coluna, operador e valor
@@ -119,7 +119,7 @@ UPDATE `tabela` SET `primeiro_nome` = ?, `ultimo_nome` = ?, `idade` = ? WHERE `t
 ```
 você também pode fazer a mesma query por apenas 2 itens na array, como este:
 ```php
-$db->update('mytable',
+$db->update('tabela',
 	[ 
 		'primeiro_nome' => 'Kris',
 		'ultimo_nome' => 'Brabo',
@@ -218,7 +218,7 @@ Agora, e se quiséssemos adicionar OR à nossa cláusula where?
 ### Como usar o método `orWhere()`?
 `orWhere()` atua exatamente como o método `where()` e leva os mesmos parâmetros, é como 'OR' em SQL e você pode usar os dois métodos juntos desta forma:
 ```php
-$db->update('mytable',
+$db->update('tabela',
 	[
 		'primeiro_nome' => 'Kris',
 		'ultimo_nome' => 'Oli',
@@ -377,6 +377,7 @@ Para imprimir o resultado of `Qget()` como JSON, apenas use `json_encode($Qget_r
 ```php
 $users = $db->table("users")->Qget();
 echo json_encode($users);
+
 ``` 
 #### `select()` Método:
 Se você quiser selecionar uma(s) coluna(s) específica(s), use o método `select ()`, ele mantém os nomes das colunas como um parâmetro de string separado por `,` assim: 
@@ -385,7 +386,7 @@ $rows = $db->table('tabela')->select('primeiro_nome, ultimo_nome')->get();
 ```
 SQL Query :
 ```sql
-SELECT `primeiro_nome`, `ultimo_nome` FROM `mytable`
+SELECT `primeiro_nome`, `ultimo_nome` FROM `tabela`
 ```
 #### `limit()` Método:
 O método `limit()` facilita a codificação de resultados de páginas múltiplas ou paginação, e é muito útil em tabelas grandes. Retornar um grande número de registros pode afetar o desempenho. Leva dois parâmetros, o primeiro é usado para especificar o número de registros a serem retornados. E o segundo é opcional para passar o deslocamento. E você pode usá-lo assim: 
