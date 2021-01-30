@@ -9,7 +9,7 @@ A sintaxe é muito simples e há muitas maneiras de fazer a mesma query, então 
 Tudo o que você quer saber sobre essa aula está aqui e muito bem organizado, para que você possa encontrar facilmente.
 
 ## Uso
-Depois de baixar a classe [aqui(https://raw.githubusercontent.com/kristianrose/flower-database/main/DB.php) salve-o em seu diretório raiz e abra-o para ajustar as configurações básicas para sua conexão de banco de dados como host , nome do banco de dados, nome de usuário e senha do banco de dados. E você também pode definir facilmente seu ambiente de desenvolvimento atual para `development` or `production`.
+Depois de baixar a classe [aqui](https://raw.githubusercontent.com/kristianrose/flower-database/main/DB.php) salve-o em seu diretório raiz e abra-o para ajustar as configurações básicas para sua conexão de banco de dados como host , nome do banco de dados, nome de usuário e senha do banco de dados. E você também pode definir facilmente seu ambiente de desenvolvimento atual para `development` or `production`.
 ```php
 //ambiente de desenvolvimento atualambiente de desenvolvimento atual
 "env" => "development",
