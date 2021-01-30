@@ -280,7 +280,7 @@ SQL Query :
 ```sql
 DELETE FROM `tabela` WHERE `tabela`.`idade` < ? AND `tabela`.`id` = ?
 ```
-####Using `where()` with `Delete()` :
+####Usando `where()` com `Delete()` :
 Você pode usar `where()` e `orWhere()` com `delete()` assim:
 ```php
 $db->delete('tabela')->where(1)->exec();
