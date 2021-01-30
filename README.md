@@ -70,7 +70,7 @@ E aqui está como usar `lastId()` depois de usar o método `update ()`:
 ```php
 echo $db->lastId();
 ```
-###Atualizar valores da tabela
+### Atualizar valores da tabela
 Para atualizar a tabela, use o método `update()` que contém 3 parâmetros: o primeiro é o nome da tabela, o segundo é um array associativo dos valores da tabela que você deseja atualizar e o terceiro parâmetro é opcional, você pode usá-lo para indicar a condição de atualização como a cláusula WHERE no SQL.
 A classe DB fornece tantas maneiras de fazer as mesmas consultas, por exemplo: o terceiro parâmetro no método `update()` você pode fazer um dos seguintes métodos:
 ####Passando o id
@@ -280,7 +280,7 @@ SQL Query :
 ```sql
 DELETE FROM `tabela` WHERE `tabela`.`idade` < ? AND `tabela`.`id` = ?
 ```
-####Usando `where()` com `Delete()` :
+#### Usando `where()` com `Delete()` :
 Você pode usar `where()` e `orWhere()` com `delete()` assim:
 ```php
 $db->delete('tabela')->where(1)->exec();
@@ -297,7 +297,7 @@ SQL Query :
 ```sql
 DELETE FROM `tabela`
 ```
-###Seleção
+### Seleção
 Use o método `get()` para recuperar dados da tabela, mas você tem que definir a tabela primeiro usando o método `table()`, que leva o nome da tabela como único parâmetro como este:
 ```php
 $rows = $db->table('tabela')->get();
