@@ -1,5 +1,6 @@
 # Bem-vindo ao banco de dados Flower Classe V 1.0 
 A classe FlowerDB é uma classe construtora de query simples em PHP para aumentar sua produtividade, você não pode imaginar quanto tempo vai economizar se estiver usando essa classe! .
+`Caso encontrei consulta = query`
 ## Recursos
 * Totalmente seguro:
 Esta classe de banco de dados usa instruções preparadas por PDO para fornecer altos níveis de proteção contra ataques de injeção de SQL
@@ -7,8 +8,6 @@ Esta classe de banco de dados usa instruções preparadas por PDO para fornecer 
 A sintaxe é muito simples e há muitas maneiras de fazer a mesma query, então você pode usar da maneira que quiser;)
 * Bem documentado :
 Tudo o que você quer saber sobre essa aula está aqui e muito bem organizado, para que você possa encontrar facilmente.
-
-`Caso encontrei consulta = query`
 
 ## Uso
 Depois de baixar a classe [aqui] (https://raw.githubusercontent.com/mareimorsy/DB/master/DB.php) salve-o em seu diretório raiz e abra-o para ajustar as configurações básicas para sua conexão de banco de dados como host , nome do banco de dados, nome de usuário e senha do banco de dados. E você também pode definir facilmente seu ambiente de desenvolvimento atual para `development` or `production`.
