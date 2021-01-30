@@ -17,7 +17,7 @@ Depois de baixar a classe [aqui] (https://raw.githubusercontent.com/mareimorsy/D
 //Localhost
 "development" => [
 					"host" => "localhost",
-					"database" => "test",
+					"database" => "teste",
 					"username" => "root",
 					"password" => ""
 				 ],
