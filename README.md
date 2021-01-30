@@ -1,6 +1,5 @@
 # Bem-vindo ao banco de dados Flower Classe V 1.0 
 A classe FlowerDB é uma classe construtora de query simples em PHP para aumentar sua produtividade, você não pode imaginar quanto tempo vai economizar se estiver usando essa classe! .
-`Caso encontrei consulta = query`
 ## Recursos
 * Totalmente seguro:
 Esta classe de banco de dados usa instruções preparadas por PDO para fornecer altos níveis de proteção contra ataques de injeção de SQL
@@ -17,7 +16,7 @@ Depois de baixar a classe [aqui] (https://raw.githubusercontent.com/mareimorsy/D
 //Localhost
 "development" => [
 					"host" => "localhost",
-					"database" => "teste",
+					"database" => "test",
 					"username" => "root",
 					"password" => ""
 				 ],
@@ -374,48 +373,48 @@ foreach ($users as $user) {
 	echo $user->primeiro_nome;
 }
 ```
-To print the result of `Qget()` as JSON just use `json_encode($Qget_result);` like this :
+Para imprimir o resultado of `Qget()` como JSON, apenas use `json_encode($Qget_result);` como isso :
 ```php
 $users = $db->table("users")->Qget();
 echo json_encode($users);
 ``` 
-#### `select()` Method : 
-If you want to select a specific column(s) use `select()` method, it holds column names as a string parameter separated by `,` like this : 
+#### `select()` Método:
+Se você quiser selecionar uma(s) coluna(s) específica(s), use o método `select ()`, ele mantém os nomes das colunas como um parâmetro de string separado por `,` assim: 
 ```php
-$rows = $db->table('mytable')->select('first_name, last_name')->get();
+$rows = $db->table('tabela')->select('primeiro_nome, ultimo_nome')->get();
 ```
 SQL Query :
 ```sql
-SELECT `first_name`, `last_name` FROM `mytable`
+SELECT `primeiro_nome`, `ultimo_nome` FROM `mytable`
 ```
-#### `limit()` Method : 
-The `limit()` method makes it easy to code multi page results or pagination, and it is very useful on large tables. Returning a large number of records can impact on performance. It takes two parameters the first one is used to specify the number of records to return. And the second one is optional to pass the offset. And you can use it like this : 
+#### `limit()` Método:
+O método `limit()` facilita a codificação de resultados de páginas múltiplas ou paginação, e é muito útil em tabelas grandes. Retornar um grande número de registros pode afetar o desempenho. Leva dois parâmetros, o primeiro é usado para especificar o número de registros a serem retornados. E o segundo é opcional para passar o deslocamento. E você pode usá-lo assim: 
 ```php
-$rows = $db->table('mytable')->limit(10)->get();
+$rows = $db->table('tabela')->limit(10)->get();
 ```
 SQL Query :
 ```sql
-SELECT * FROM `mytable` LIMIT 10
+SELECT * FROM `tabela` LIMIT 10
 ```
-It will return the first 10 records.
+Ele retornará os primeiros 10 registros.
 ```php
-$rows = $db->table('mytable')->limit(10, 20)->get();
+$rows = $db->table('tabela')->limit(10, 20)->get();
 ```
 SQL Query :
 ```sql
-SELECT * FROM `mytable` LIMIT 10 OFFSET 20
+SELECT * FROM `tabela` LIMIT 10 OFFSET 20
 ```
 It will return only 10 records, start on record 21 (OFFSET 20).
-#### Easy pagination with `paginate()` method : 
-Now after using `paginate()` method, pagination has never been easier!. You can use `paginate()` method with all selection methods like `table()` and `select()` instead of `get()`, it takes two parameters : the first one is page number starting from 1 as integer and the second one is used to specify the number of records to return `paginate($page, $limit)` and you can use it exactly like `get()` method and here is an example of how you can use it : 
+#### Paginação fácil com o método `paginat()`:
+Agora, depois de usar o método `paginate ()`, a paginação nunca foi tão fácil !. Você pode usar o método `paginate ()` com todos os métodos de seleção como `table()` e `select()` em vez de `get()`, leva dois parâmetros: o primeiro é o número da página começando em 1 como inteiro e o segundo é usado para especificar o número de registros para retornar `paginate($page, $limit)` e você pode usá-lo exatamente como o método `get()` e aqui está um exemplo de como você pode usá-lo:
 ```php
-$rows = $db->table('mytable')->paginate(2, 5);
+$rows = $db->table('tabela')->paginate(2, 5);
 ```
-That means we want to return only 5 records from the second page and it will return only 5 records, start on record 6 up to 10. To get more information about what is going on behind the scenes, use `PaginationInfo()` method for more details like this: 
+Isso significa que queremos retornar apenas 5 registros da segunda página e ela retornará apenas 5 registros, começando no registro 6 até 10. Para obter mais informações sobre o que está acontecendo nos bastidores, use o método `PaginationInfo()` para mais detalhes como este:
 ```php
 print_r( $db->paginationInfo() );
 ```
-Output : 
+Resultado : 
 ```plain
 Array
 (
@@ -425,53 +424,53 @@ Array
     [lastPage] => 5
 )
 ```
-It will return an associative array of useful information you might need to know like the current, previous, next and last page. And if there's no previous or next page its value would be null.
-#### `Qpaginate()` Method :
-`Qpaginate()` method works exactly like `paginate()` method but without all `MareiCollecton` functionality like print the result as JSON and other methods like `toArray()`, `toJSON()`, `first()`, `last()` and `item()`. if you really care about performance `Qget()` is what you need to use. And you can use it like this :
+Ele retornará uma matriz associativa de informações úteis que você pode precisar saber, como a página atual, anterior, seguinte e última. E se não houver página anterior ou seguinte, seu valor seria nulo.
+#### Método `Qpaginate()`:
+O método `Qpaginate ()` funciona exatamente como o método `paginate ()`, mas sem toda a funcionalidade `FlowerCollecton`, como imprimir o resultado como JSON e outros métodos como` toArray() `,` toJSON() `,` first() `, `último()` e `item()`. se você realmente se preocupa com o desempenho, `Qget()` é o que você precisa usar. E você pode usá-lo assim:
 ```php
-$rows = $db->table('mytable')->paginate(2, 5);
+$rows = $db->table('tabela')->paginate(2, 5);
 ```
 ####Using `where()` and `orWhere()` with selection : 
 You can use `where()` or `orWhere()` methods with selection like this : 
 ```php
-$rows = $db->table('mytable')->where(1)->get();
+$rows = $db->table('tabela')->where(1)->get();
 ```
 SQL Query :
 ```sql
-SELECT * FROM `mytable` WHERE `mytable`.`id` = ?
+SELECT * FROM `tabela` WHERE `tabela`.`id` = ?
 ```
-####Order the result set
-you can use `orderBy()` method to order the result set by a column name, `orderBy($column_name, $order)` takes two parameters, the first one is the column name as string and the second one is optional and it takes only two values `ASC` which is the default value to order the result set by asccending order, or `DESC` to order the result set by descending order like this :
+#### Ordenar o conjunto de resultados
+você pode usar o método `orderBy()` para ordenar o conjunto de resultados por um nome de coluna, `orderBy ($column_name, $order)` leva dois parâmetros, o primeiro é o nome da coluna como string e o segundo é opcional e aceita apenas dois valores `ASC`, que é o valor padrão para ordenar o conjunto de resultados em ordem crescente, ou` DESC` para ordenar o conjunto de resultados em ordem decrescente como esta:
 ```php
-$rows = $db->table('mytable')->orderBy('id', 'DESC')->get();
+$rows = $db->table('tabela')->orderBy('id', 'DESC')->get();
 ```
-To order the result set in descending order by id.
-And you can use more than orderBy together like this :
+Para ordenar o conjunto de resultados em ordem decrescente por id.
+E você pode usar mais do que orderBy juntos, assim:
 ```php
-$rows = $db->table('mytable')
+$rows = $db->table('tabela')
            ->orderBy('id', 'DESC')
-	   ->orderBy('age', 'ASC')
+	   ->orderBy('idade', 'ASC')
 	   ->get();
 ```
-and ofcourse as you use `orderBy()` with `get()`, you can also use it with `paginate()`, `limit()`, `Qget()` and `Qpaginate()` methods.
-####Count selected rows
-Use `getCount()` method to get the total number of rows returned of the last query. and you can use it after selection like this : 
+e claro, como você usa `orderBy()` com `get()`, você também pode usá-lo com os métodos `paginate()`, `limit()`, `Qget()` e `Qpaginate()`.
+#### Contar linhas selecionadas
+Use o método `getCount ()` para obter o número total de linhas retornadas da última consulta. e você pode usá-lo após a seleção como este:
 ```php
 echo $db->getCount();
 ```
-###Using Raw Queries : 
-I bet that you asked what if I wanted to execute more complected queries?
-that's why I created `query()` method, it holds three parameters the first one is SQL query as a string, and the second one is optional and it's for the values that you wanna pass to query as an array. And here is how you can use `query()` method : 
+### Usando Raw Queries:
+Aposto que você perguntou e se eu quisesse executar mais consultas resolvidas?
+é por isso que criei o método `query()`, ele contém três parâmetros o primeiro é a consulta SQL como uma string, e o segundo é opcional e é para os valores que você deseja passar para a consulta como um array. E aqui está como você pode usar o método `query()`:
 ```php
-$sql = "SELECT * FROM mytable WHERE id = ?";
+$sql = "SELECT * FROM tabela WHERE id = ?";
 $rows = $db->query($sql, [1]);
 ```
 SQL Query :
 ```sql
-SELECT * FROM mytable WHERE id = 1
+SELECT * FROM tabela WHERE id = 1
 ```
-if you want to get rid of all `MareiCollection` functionally just pass true as a third parameter like this :
+se você quiser se livrar de todos os `FlowerCollection` funcionalmente, apenas passe true como um terceiro parâmetro como este:
 ```php
-$sql = "SELECT * FROM mytable WHERE id = ?";
+$sql = "SELECT * FROM tabela WHERE id = ?";
 $rows = $db->query($sql, [1], true);
 ```
